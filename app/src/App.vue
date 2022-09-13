@@ -1,26 +1,81 @@
 <template>
-  <TheHeader v-if="showHeader" />
+
+  
+  <div> 
+      
+      <div 
+        v-for="obj in todos">
+        {{ obj.name }}
+      </div>
+  
+  </div>
+
+
+ <!--  <TheHeader v-if="showHeader" />
 
   <div v-show="showName">
     Nome: {{ firstName }}
     Sobrenome: {{ lastName }}
   </div>
 
+  <div v-if="accessLevel === 'Admin'">Usuário: Admin </div>
+  <div v-else-if="accessLevel === 'Marketing'">Usuário: Marketing</div>
+  <div v-else>Usuário: Normal</div>
+
   <img
     
     alt="Vue logo" 
     src="./assets/logo.png">
 
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TheHeader from './components/TheHeader';
+/* import HelloWorld from './components/HelloWorld.vue'
+import TheHeader from './components/TheHeader'; */
 
 export default {
-  name: 'App',
-  components: {
+  name: 'App',  
+
+  data() {
+    return {
+      todos: [
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "quis ut nam facilis et officia qui",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "fugiat veniam minus",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 4,
+    "title": "et porro tempora",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 5,
+    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+    "completed": false
+  },
+      ]
+    }
+  }
+
+
+  /* components: {
     HelloWorld,
     TheHeader
   },
@@ -30,8 +85,9 @@ export default {
       firstName: 'Lorem Ipsum',
       lastName: 'Dolor',
       showName: false,
+      accessLevel: 'Admin'
     }
-  }
+  } */
 }
 </script>
 
