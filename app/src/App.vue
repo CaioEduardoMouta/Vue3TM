@@ -1,11 +1,20 @@
 <template>
 
   
+  
+  
   <div> 
       
       <div 
-        v-for="obj in todos">
-        {{ obj.name }}
+        v-for="(obj, index) in todos"
+        v-bind:key="obj.id"
+        class="todos-items">
+        <img 
+        v-bind:src="obj.imgSrc"
+       
+      >
+
+       {{ index }} - {{ obj.title }}
       </div>
   
   </div>
@@ -39,18 +48,22 @@ export default {
 
   data() {
     return {
+     
       todos: [
   {
     "userId": 1,
     "id": 1,
     "title": "delectus aut autem",
-    "completed": false
+    "completed": false,
+    "imgSrc":'https://via.placeholder.com/150'
+  
   },
   {
     "userId": 1,
     "id": 2,
     "title": "quis ut nam facilis et officia qui",
-    "completed": false
+    "completed": false,
+    "imgSrc":'https://via.placeholder.com/150'
   },
   {
     "userId": 1,
@@ -92,12 +105,18 @@ export default {
 </script>
 
 <style>
+  .todos-items {
+    background:#000;
+    margin: 0 0 5px 0;
+    padding: 3px;
+    color: #fff;
+  }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px;
 }
 </style>
