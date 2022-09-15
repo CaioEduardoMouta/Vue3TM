@@ -4,18 +4,36 @@
   
   
   <div> 
+
+    <div>
+
+    </div>
+    
+
+   <!--  <h1 :class="{'title': true, 'title-home': isHome }">
+      Curso Vue 3
+    </h1>
+
+    <p :class="pClass">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quos sit facilis aliquid officiis numquam maxime alias, iusto itaque. Maiores repudiandae odio assumenda beatae voluptatum ipsum molestiae dolorum, perspiciatis voluptas.
+    </p>
+
+    <p :style="{'color':'aquamarine', backgroundColor:'black','font-size':'20px'}">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse placeat praesentium sequi deserunt modi, repellat, autem nostrum necessitatibus quos enim distinctio? Dolores nulla voluptas cum consequuntur, odio officiis. Itaque, reprehenderit!
+    </p>
       
       <div 
         v-for="(obj, index) in todos"
-        v-bind:key="obj.id"
+        :key="obj.id"
         class="todos-items">
         <img 
-        v-bind:src="obj.imgSrc"
+        v-if="obj.imgSrc"
+        :src="obj.imgSrc"
        
       >
 
        {{ index }} - {{ obj.title }}
-      </div>
+      </div> -->
   
   </div>
 
@@ -48,7 +66,9 @@ export default {
 
   data() {
     return {
-     
+    /*   isHome: true,
+      classVar: 'title',
+      pClass: ['text', 'text-home'],
       todos: [
   {
     "userId": 1,
@@ -83,7 +103,7 @@ export default {
     "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
     "completed": false
   },
-      ]
+      ] */
     }
   }
 
@@ -105,12 +125,27 @@ export default {
 </script>
 
 <style>
+ /*  .title {
+    font-size: 20px;
+    color:rgb(2, 80, 54);
+  }
+  .title-home {
+    font-size:40px;
+    color:green;
+  }
+  .text {
+    color: rgb(46, 46, 46);
+  }
+
+  .text-home {
+    color:rgb(0, 72, 87)
+  }
   .todos-items {
     background:#000;
     margin: 0 0 5px 0;
     padding: 3px;
     color: #fff;
-  }
+  } */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
