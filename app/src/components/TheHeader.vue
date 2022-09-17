@@ -8,6 +8,26 @@
 
 
 export default {
+
+    mounted() {
+        window.addEventListener('resize', this.resize)
+    },  
+
+  beforeUnmount() {
+    console.log('beforeUnmount');
+    
+    
+  },
+  unmounted() {
+    console.log('unmonted');
+   
+    
+  },
+  methods: {
+    resize($evt) {
+        console.log($evt);
+    }
+  }
  
 }
 </script>

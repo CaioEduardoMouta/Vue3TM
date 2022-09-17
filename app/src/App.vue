@@ -1,19 +1,35 @@
 <template>
 
   
-  
+<div>
+  <TheHeader v-if="showHeader"/>
+  <h1>Default</h1>
+  <br><br>
+  <input
+    v-model='name'
+    type="text"
+  >
+  {{ name }} <br><br>
+  <button @click="showHeader = false">
+    Ativar e desativar Header
+  </button>
+</div>
   
   
 
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue';
 
 export default {
-  name: 'App',  
+  name: 'App', 
+  components: { TheHeader }, 
 
   data() {
     return {
+      name: 'Lorem Ipsum',
+      showHeader: true
     }
     
   },
@@ -35,23 +51,31 @@ export default {
   */
 
   //HOOKS
+  beforeUpdate() {
+    console.log('beforeUpdate', this.name);
+  },
+  updated() {
+    console.log('updated', this.name);
+  },
   beforeCreated() {
     console.log('beforeCreate');
+    console.log('Estado:',this.name);
+    console.log('DOM:',this.$el);
   },
   created() {
     console.log('Create');
+    console.log('Estado:',this.name);
+    console.log('DOM:',this.$el);
   },
   beforeMount() {
     console.log('beforeMount');
+    console.log('Estado:',this.name);
+    console.log('DOM:',this.$el);
   },
   mounted(){
     console.log('Mounted');
-  },
-  beforeUnmount() {
-    console.log('beforeUnmount');
-  },
-  unmounted() {
-    console.log('unmonted');
+    console.log('Estado:',this.name);
+    console.log('DOM:',this.$el);
   },
   watch: {
     
