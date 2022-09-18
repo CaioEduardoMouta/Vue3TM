@@ -2,7 +2,22 @@
 
   
 <div>
-  <TheHeader v-if="showHeader"/>
+
+  <BaseCard />
+
+  <!-- <TheHeader>
+    <template v-slot:title>
+      Home
+    </template> 
+
+    <template v-slot:description>
+      <h1>dadsa</h1>
+    </template>
+
+    Content do Header - MENU 
+  </TheHeader>
+ -->
+ <!--  <TheHeader v-if="showHeader"/>
   <h1>Default</h1>
   <br><br>
   <input
@@ -12,7 +27,7 @@
   {{ name }} <br><br>
   <button @click="showHeader = false">
     Ativar e desativar Header
-  </button>
+  </button> -->
 </div>
   
   
@@ -20,16 +35,16 @@
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue';
+import BaseCard from '@/components/BaseCard';
 
 export default {
   name: 'App', 
-  components: { TheHeader }, 
+  components: { BaseCard }, 
 
   data() {
     return {
-      name: 'Lorem Ipsum',
-      showHeader: true
+     /*  name: 'Lorem Ipsum',
+      showHeader: true */
     }
     
   },
@@ -51,7 +66,7 @@ export default {
   */
 
   //HOOKS
-  beforeUpdate() {
+  /* beforeUpdate() {
     console.log('beforeUpdate', this.name);
   },
   updated() {
@@ -76,7 +91,7 @@ export default {
     console.log('Mounted');
     console.log('Estado:',this.name);
     console.log('DOM:',this.$el);
-  },
+  }, */
   watch: {
     
   },

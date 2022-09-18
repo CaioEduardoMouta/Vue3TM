@@ -1,6 +1,18 @@
 <template>
     <header class="header">
-        Header
+        <h1
+          v-if="$slots.title" 
+          class="title">
+          <slot name="title" />
+        </h1>
+
+        <div class="description">
+          <slot name="description" />
+        </div>
+
+        <div class="content">
+          <slot />
+        </div>
     </header>
 </template>
 
@@ -9,7 +21,12 @@
 
 export default {
 
-    mounted() {
+  mounted() {
+    console.log(this.$slots);
+
+  }
+
+   /*  mounted() {
         window.addEventListener('resize', this.resize)
     },  
 
@@ -27,7 +44,7 @@ export default {
     resize($evt) {
         console.log($evt);
     }
-  }
+  } */
  
 }
 </script>
