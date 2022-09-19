@@ -1,6 +1,7 @@
 <template>
     <div :class="baseClass">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus praesentium recusandae maxime voluptate nulla accusamus pariatur repellendus laudantium distinctio amet, maiores reprehenderit tenetur sed architecto temporibus est dolores fugit minima!
+        {{ test }}
+     <slot />
     </div>
     
 </template>
@@ -9,7 +10,16 @@
 
 
 export default {
-    props: ['variant', 'text'],
+    props: {
+        variant: {
+            type: String,
+            default: ''
+        },
+        test: {
+            type: String,
+            default: 'test  '
+        },
+    },
     computed: {
         baseClass() {
             return [

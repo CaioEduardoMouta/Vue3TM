@@ -3,8 +3,9 @@
   
 <div>
 
-  <BaseAlert :variant="variant" 
-             :text="text"/>
+  <BaseAlert :variant="variant">
+    {{ text }}
+  </BaseAlert>  
   
 
   <!-- <BaseCard /> -->
@@ -48,7 +49,7 @@ export default {
 
   data() {
     return {
-      variant: 'success',
+      variant: 'danger',
       text: 'Seu formulario foi enviado'
      /*  name: 'Lorem Ipsum',
       showHeader: true */
