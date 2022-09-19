@@ -3,7 +3,11 @@
   
 <div>
 
-  <BaseCard />
+  <BaseAlert :variant="variant" 
+             :text="text"/>
+  
+
+  <!-- <BaseCard /> -->
 
   <!-- <TheHeader>
     <template v-slot:title>
@@ -35,14 +39,17 @@
 </template>
 
 <script>
-import BaseCard from '@/components/BaseCard';
+/* import BaseCard from '@/components/BaseCard'; */
+import BaseAlert from './components/BaseAlert.vue';
 
 export default {
   name: 'App', 
-  components: { BaseCard }, 
+  components: { BaseAlert }, 
 
   data() {
     return {
+      variant: 'success',
+      text: 'Seu formulario foi enviado'
      /*  name: 'Lorem Ipsum',
       showHeader: true */
     }
