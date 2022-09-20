@@ -1,7 +1,10 @@
 <template>
-    <div :class="baseClass">
-        {{ test }}
+    <div :class="baseClass">  
      <slot />
+
+     <button @click="onClick">
+        X
+     </button>
     </div>
     
 </template>
@@ -15,10 +18,7 @@ export default {
             type: String,
             default: ''
         },
-        test: {
-            type: String,
-            default: 'test  '
-        },
+ 
     },
     computed: {
         baseClass() {
@@ -28,6 +28,13 @@ export default {
             ]
         },
     },
+
+    methods: {
+        onClick() {
+            this.$emit('close')
+            console.log('Clicou');
+        }
+    }
   
 }
 </script>
@@ -35,6 +42,8 @@ export default {
 
 <style scoped>
 .alert {
+    display: flex;
+    justify-content: space-between;
     padding: 5px;
     border-radius: 6px;
     color: gray;
