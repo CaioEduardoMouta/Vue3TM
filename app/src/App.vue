@@ -1,10 +1,23 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link :to="routeDinamica">Serviços</router-link> |
+    <router-link to="/usuarios/10">Usuário</router-link> |
+    <router-link to="/about">Sobre</router-link>
   </nav>
   <router-view/>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      routeDinamica: { name: 'servicos'}
+    }
+  }
+}
+</script>
+
 
 <style>
 #app {
