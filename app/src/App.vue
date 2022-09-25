@@ -4,9 +4,16 @@
     <router-link :to="routeDinamica">Serviços</router-link> |
     <router-link to="/usuarios/10">Usuário</router-link> |
     <router-link to="/about">Sobre</router-link> -->
-    <HelloWorld 
-      user=""
-      msg="Bem vindo seu vue.js" />
+
+    <AppProducts />    
+
+    <br><br>
+    
+    <button @click="updateUser">
+      Save user
+    </button>
+
+    
 
       
  <!--  </nav>
@@ -15,11 +22,12 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
+import AppProducts from './components/Products/AppProducts.vue';
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    
+    AppProducts
 },
   data() {
     return {
@@ -27,9 +35,22 @@ export default {
       /* routeDinamica: { name: 'servicos'} */
     }
   },
-  created() {
-    console.log();
-  }
+
+  methods: {
+    updateUser() {
+      const newUser =  {
+      first_name: 'Ipsum',
+      last_name: 'Lorem',
+      email: 'ipsum@lorem.com'
+    }
+    this.$store.commit('storeUser', newUser)
+  },
+
+  
+    
+  },
+  
+   
 }
 </script>
 
