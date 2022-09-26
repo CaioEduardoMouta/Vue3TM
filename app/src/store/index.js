@@ -27,11 +27,24 @@ export default createStore({
     cart: []
   },
   getters: {
+    total(state) {
+
+      return state.cart.reduce((total, item) => total += item.price, 0)
+    },
   },
   mutations: {
     storeUser(state, data) {
       state.user = data 
     },
+
+    addProduct(state, data) {
+      state.cart.push(data)
+    },
+
+    removeProduct(state, id) {
+       const idx = state.cart.findIndex(o => o.id === id)
+       state.cart.splice(idx,1);
+    }
   },
   actions: {
   },

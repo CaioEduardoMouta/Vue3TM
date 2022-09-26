@@ -5,9 +5,18 @@
     <router-link to="/usuarios/10">Usuário</router-link> |
     <router-link to="/about">Sobre</router-link> -->
 
-    <AppProducts />    
+    <AppProducts />
+    <br><br>    
+    <br><br>
+
+    <pre>
+      {{ store.state.cart }}
+    </pre>
+
+    {{ $store.getters.total }}
 
     <br><br>
+    <br><br><br>
     
     <button @click="updateUser">
       Save user
