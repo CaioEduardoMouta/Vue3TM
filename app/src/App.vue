@@ -1,4 +1,5 @@
 <template>
+    {{ $store.getters.total }}
   <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link :to="routeDinamica">Serviços</router-link> |
@@ -10,17 +11,20 @@
     <br><br>
 
     <pre>
-      {{ store.state.cart }}
+      {{ $store.state.cart }}
     </pre>
 
-    {{ $store.getters.total }}
+  
 
     <br><br>
     <br><br><br>
-    
+
+    {{ $store.state.user.first_name }}  {{ $store.state.user.last_name }}
+    <br><br>
     <button @click="updateUser">
       Save user
     </button>
+    <br><br>
 
     
 
@@ -30,12 +34,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+//import HelloWorld from './components/HelloWorld.vue';
 import AppProducts from './components/Products/AppProducts.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    //HelloWorld,
     AppProducts
 },
   data() {
@@ -52,8 +56,11 @@ export default {
       last_name: 'Lorem',
       email: 'ipsum@lorem.com'
     }
-    this.$store.commit('storeUser', newUser)
-  },
+    //this.$store.commit('storeUser', newUser)
+    this.$store.dispatch('storeUser', newUser).then(() => {
+      
+    })
+  }
 
   
     

@@ -26,12 +26,7 @@ export default createStore({
     ],
     cart: []
   },
-  getters: {
-    total(state) {
-
-      return state.cart.reduce((total, item) => total += item.price, 0)
-    },
-  },
+  
   mutations: {
     storeUser(state, data) {
       state.user = data 
@@ -46,7 +41,22 @@ export default createStore({
        state.cart.splice(idx,1);
     }
   },
+  getters: {
+    total(state) {
+
+      return state.cart.reduce((total, item) => total += item.price, 0)
+    },
+  },
   actions: {
+    storeUser({commit}, data) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          commit('storeUser',data);
+          resolve()
+        },3000)
+      })
+      
+    }
   },
 /*   modules: {
   } */

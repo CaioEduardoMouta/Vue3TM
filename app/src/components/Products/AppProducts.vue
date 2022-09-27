@@ -1,7 +1,7 @@
 <template>
     <div>
         <AppProduct v-for="product in  $store.state.prpducts"
-        :key="product.id" :product="product">
+        :key="product.id" :product="product"/>
         <AppProduct />
         <AppProduct />
     </div>    
