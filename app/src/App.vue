@@ -59,7 +59,7 @@ export default {
       let name = 'Ipsum'
 
       const changeName = () => {
-        alert = 'Chegou',
+        alert('Chegou')
         name = 'Mouta Carrazedo'
       }
 
