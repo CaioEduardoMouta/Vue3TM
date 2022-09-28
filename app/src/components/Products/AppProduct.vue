@@ -1,20 +1,31 @@
 <template>
     <div>
-        
-            {{ product.name }} - {{ product.price }}<br>
+        Produto
+       <!--      {{ product.name }} - {{ product.price }}<br>
         <button @click="addProduct()">
             Adicionar
         </button>
 
         <button @click="removeProduct()">
             Remove
-        </button>
+        </button> -->
     </div>
 </template>
 
 <script>
+
+import CalculateDiscountMixin from './CalculateDiscountMixin.vue';
+
 export default {
-    props: {
+    
+    mixins: [CalculateDiscountMixin],
+
+    created() {
+        this.calculateDiscount()
+    },
+    
+
+    /* props: {
         product: Object
     },
 
@@ -25,7 +36,7 @@ export default {
         removeProduct() {
             this.$store.commit('removeProduct', this.product.id)
         },
-    }
+    } */
 }
 </script>
 

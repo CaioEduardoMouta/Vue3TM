@@ -1,16 +1,22 @@
 <template>
-    {{ $store.getters.total }}
+    
+    <AppProduct />
+    {{ name }}
+    <img @click="changeName()" src="./assets/logo.png">
+    <HelloWorld msg="Bem vindo ao seu app Vue.JS" />
+
+   <!--  {{ $store.getters.total }} -->
   <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link :to="routeDinamica">Serviços</router-link> |
     <router-link to="/usuarios/10">Usuário</router-link> |
     <router-link to="/about">Sobre</router-link> -->
 
-    <AppProducts />
-    <br><br>    
-    <br><br>
+<!--     <AppProducts /> -->
+    <!-- br><br>    
+    <br><br> -->
 
-    <pre>
+   <!--  <pre>
       {{ $store.state.cart }}
     </pre>
 
@@ -26,7 +32,7 @@
     </button>
     <br><br>
 
-    
+     -->
 
       
  <!--  </nav>
@@ -34,22 +40,37 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue';
-import AppProducts from './components/Products/AppProducts.vue';
+import HelloWorld from './components/HelloWorld.vue';
+//import AppProducts from './components/Products/AppProducts.vue';
+import AppProduct from './components/Products/AppProduct.vue';
+
+
+
+
 export default {
   name: 'App',
   components: {
-    //HelloWorld,
-    AppProducts
+    HelloWorld,
+    //AppProducts,
+    AppProduct,
+   
 },
-  data() {
-    return {
-    
-      /* routeDinamica: { name: 'servicos'} */
-    }
-  },
+    setup() {
+      let name = 'Ipsum'
 
-  methods: {
+      const changeName = () => {
+        alert = 'Chegou',
+        name = 'Mouta Carrazedo'
+      }
+
+      return {
+        name,
+        changeName
+      }
+    },
+ }
+
+ /*  methods: {
     updateUser() {
       const newUser =  {
       first_name: 'Ipsum',
@@ -64,10 +85,10 @@ export default {
 
   
     
-  },
-  
+  }
+   */
    
-}
+
 </script>
 
 
