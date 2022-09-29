@@ -1,9 +1,26 @@
 <template>
+  <AppHook v-if="showAppHook" />
+  <button @click="showAppHook = !showAppHook">
+  Toggle
+  </button>
+  <br><br>
+  {{ name }} <br><br>
+  <h5>User</h5>
+  {{ user.first_name }}
+  {{ user.last_name }}  
+  <br><br>
+  <!-- <h5>Admin</h5>
+  {{ admin.first_name }}
+  {{ admin.last_name }}   -->
+  <br><br>
+  <h6>Full Name</h6>
+  {{ fullName }}
+  <br>
+  <button @click="user.first_name = 'Junior'">Atualizar</button>
+  <AppProduct />
     
-    <AppProduct />
-    {{ name }}
-    <img @click="changeName()" src="./assets/logo.png">
-    <HelloWorld msg="Bem vindo ao seu app Vue.JS" />
+   <!--  <img @click="changeName()" src="./assets/logo.png">
+    <HelloWorld msg="Bem vindo ao seu app Vue.JS" /> -->
 
    <!--  {{ $store.getters.total }} -->
   <!-- <nav>
@@ -40,32 +57,67 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+/* import HelloWorld from './components/HelloWorld.vue'; */
 //import AppProducts from './components/Products/AppProducts.vue';
 import AppProduct from './components/Products/AppProduct.vue';
-
+import { ref, computed, watch } from 'vue';
+import AppHook from './components/AppHook.vue';
 
 
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    /* HelloWorld, */
     //AppProducts,
     AppProduct,
+    AppHook,
    
 },
+  /* computed: {
+    fullName() {
+      return '';
+    },
+  }, */
     setup() {
-      let name = 'Ipsum'
+     /*  const user = reactive({
+        first_name: 'Lorem',
+        last_name: 'Ipsum'
+      }) */
 
-      const changeName = () => {
+      
+      const user = ref({
+        first_name: 'Senior',
+        last_name: 'Master'
+      })
+
+      const showAppHook = ref(true)
+
+      const fullName = computed(() => `${user.value.first_name} ${user.value.last_name}`)
+
+      watch(user, () => {
+        console.log('Logica cabulosa');
+      }, {
+        deep: true
+      })
+     /*  const count = ref(0)
+      console.log(count); */
+
+      let name = 'Caio'
+
+      /* const changeName = () => {
         alert('Chegou')
         name = 'Mouta Carrazedo'
-      }
+        user.first_name = 'Dolor'
+        admin.value.first_name = 'Pleno'
+      } */
 
       return {
+        user,
+        fullName,
         name,
-        changeName
+        showAppHook
+        
       }
     },
  }
