@@ -1,4 +1,9 @@
 <template>
+  Hello Vue <br>
+  <AppButton data-vue="Caio" @update="getUpdate">
+    Save 
+    <template #icon>Icon</template>
+  </AppButton>
   <AppHook v-if="showAppHook" />
   <button @click="showAppHook = !showAppHook">
   Toggle
@@ -62,6 +67,7 @@
 import AppProduct from './components/Products/AppProduct.vue';
 import { ref, computed, watch } from 'vue';
 import AppHook from './components/AppHook.vue';
+import AppButton from './components/AppButton.vue';
 
 
 
@@ -72,7 +78,7 @@ export default {
     //AppProducts,
     AppProduct,
     AppHook,
-   
+    AppButton
 },
   /* computed: {
     fullName() {
@@ -84,7 +90,9 @@ export default {
         first_name: 'Lorem',
         last_name: 'Ipsum'
       }) */
-
+      const getUpdate = (data) => {
+        console.log('getUpdate', data)
+      }
       
       const user = ref({
         first_name: 'Senior',
@@ -116,7 +124,8 @@ export default {
         user,
         fullName,
         name,
-        showAppHook
+        showAppHook,
+        getUpdate
         
       }
     },
