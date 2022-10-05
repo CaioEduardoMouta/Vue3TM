@@ -12,6 +12,22 @@ export default createStore({
     },
   },
   actions: {
+    getTodos({ commit }) {
+      return new Promise((resolve) => {
+      setTimeout(() => {
+        return axios.get('http://localhost:3000/todos')
+        .then((response)  => {
+          commit('storeTodos',response.data )
+          
+        })
+      }, 3000)
+    })
+      
+        
+    },
+    addTodos(context, data) {
+      axios.post('http://localhost:3000/todos',data)
+    }
   },
   modules: {
   }

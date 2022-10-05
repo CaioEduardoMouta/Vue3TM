@@ -1,8 +1,13 @@
 <template>
     <!-- Todo form -->
-    <form class="flex items-center px-4 bg-gray-900 h-15 
+    <form 
+    @submit.stop.prevent="addTodo"
+    class="flex items-center px-4 bg-gray-900 h-15 
 rounded-sm border-l-2 border-green-400 mb-3">
+
+                {{ title }}
                 <input
+                    v-model="title"
                     placeholder="Adicione um novo item ..."
                     type="text"
                     class="bg-gray-900 placeholder-gray-500 text-gray-500 
@@ -19,3 +24,20 @@ focus:outline-none"
                 </button>
             </form>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                title: ''
+            }
+        },
+
+        methods: {
+            addTodo() {
+                this.$atore.dispatch('addTodo',{
+                    title: this.title
+            },
+        },
+    }
+</script>
