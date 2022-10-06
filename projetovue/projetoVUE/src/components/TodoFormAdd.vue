@@ -35,9 +35,15 @@ focus:outline-none"
 
         methods: {
             addTodo() {
+                if(!this.title) {
+                    return false;
+                }
                 this.$atore.dispatch('addTodo',{
-                    title: this.title
-            },
+                    title: this.title,
+                    completed: false
+                })
+        },
         },
     }
+
 </script>

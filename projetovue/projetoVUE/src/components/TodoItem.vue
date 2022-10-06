@@ -20,6 +20,7 @@ stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 class="bg-gray-300 placeholder-gray-500 
 text-gray-700 font-light focus:outline-none block w-full appearance-none 
 leading-normal mr-3"
+@keyup.enter="updateTodo"
                             >
                         </div>
 
@@ -55,6 +56,12 @@ justify-center">
             todo: {
                 type: Object,
                 default: () => ({}),
+            },
+        },
+
+        methods: {
+            updateTodo($evt) {
+                
             }
         }
     }

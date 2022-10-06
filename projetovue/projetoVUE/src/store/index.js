@@ -7,8 +7,11 @@ export default createStore({
   getters: {
   },
   mutations: {
-    storeTodos(state, data) {
+    storeTodos(state, payload) {
       state.todos = payload
+    },
+    storeTodo(state, payload) {
+      state.todos.unshift(payload) 
     },
   },
   actions: {
@@ -18,15 +21,17 @@ export default createStore({
         return axios.get('http://localhost:3000/todos')
         .then((response)  => {
           commit('storeTodos',response.data )
-          
+          resolve()
         })
       }, 3000)
     })
       
         
     },
-    addTodos(context, data) {
-      axios.post('http://localhost:3000/todos',data)
+    addTodos({ commit }, data) {
+      axios.post('http://localhost:3000/todos',data).then(() => {
+        commit('storeTodo', response.data);
+      })
     }
   },
   modules: {
