@@ -28,11 +28,15 @@ export default createStore({
       
         
     },
-    addTodos({ commit }, data) {
-      axios.post('http://localhost:3000/todos',data).then(() => {
+    addTodo({ commit }, data) {
+      axios.post('http://localhost:3000/todos',data).then((response) => {
         commit('storeTodo', response.data);
       })
-    }
+    },
+    updateTodo(context, {id, data}) {
+      return axios.put(`http://localhost:3000/todos/${id}`,data)
+      }
+    
   },
   modules: {
   }
