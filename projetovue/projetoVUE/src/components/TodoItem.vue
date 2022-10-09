@@ -21,9 +21,10 @@ stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         <div class="w-full">
                             
                             <input
+                                v-model="title"
                                 type="text"
                                 placeholder="Digite a sua tarefa"
-                                :value="todo.title"
+                                
                                 class="bg-gray-300 placeholder-gray-500 
 text-gray-700 font-light focus:outline-none block w-full appearance-none 
 leading-normal mr-3"
@@ -68,27 +69,31 @@ justify-center">
 
         data() {
             return {
+                title: this.todo.title,
                 isCompleted: this.todo.completed,
             }
         },
 
         methods: {
-            onTitleChange($evt) {
-                const newTitle = $evt.target.value
+            onTitleChange() {
                 
-                if(!newTitle) {
+                if(!this.title) {
                     return
                 }
 
+                this.updateTodo()
+            },
+               updateTodo() {
                 const payload = {
                     id: this.todo.id,
                     data: {
-                        title: newTitle,
+                        title: this.title,
                         completed: this.isCompleted
                     }
                 }
                 this.$store.dispatch('updateTodo', payload)
 
+               
             },
 
             onCheckClick() {
