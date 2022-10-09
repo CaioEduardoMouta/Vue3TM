@@ -12,7 +12,9 @@
             <template v-else>
             <TodoFormAdd />
             
-            <TodoItems/>
+            
+            <TodoItems 
+            v-if="$store.state.todos.length"/>
             <TodoEmpty/>
           </template>
         
@@ -27,7 +29,7 @@ import TodoSpinner from './components/TodoSpinner.vue';
 import TodoFormAdd from './components/TodoFormAdd.vue';
 import TodoItems from './components/TodoItems.vue';
 import TodoEmpty from './components/TodoEmpty.vue';
-import axios from 'axios'
+
 
 export default {
   
