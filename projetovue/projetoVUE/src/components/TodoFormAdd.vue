@@ -27,23 +27,30 @@ focus:outline-none"
 
 <script>
     export default {
-        data() {
-            return {
-                title: ''
-            }
-        },
+        setup() {
+            const title = ref()
+            const store = useStore()
 
-        methods: {
-            addTodo() {
-                if(!this.title) {
+            const addTodo = () => {
+                if(!title.value) {
                     return false;
                 }
-                this.$atore.dispatch('addTodo',{
-                    title: this.title,
+                store.dispatch('addTodo',{
+                    title: title.value,
                     completed: false
+                }).finally(() => {
+                    title.valie = ''
                 })
+        }
+
+            return {
+                title,
+                addTodo
+            }
         },
-        },
+       
+
+       
     }
 
 </script>
